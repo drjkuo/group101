@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :groups
+  resources :groups do
+    resources :posts
+  end
 
-  root 'groups#index' #這行代表把 localhost:3000/groups 這個網址設成首頁
+  root 'groups#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

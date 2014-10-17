@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @posts = @group.posts
   end
 
   def new
@@ -41,10 +42,11 @@ class GroupsController < ApplicationController
     @group.destroy
     redirect_to groups_path, :alert => '討論版已刪除'
   end
-end
 
   private
 
   def group_params
       params.require(:group).permit(:title, :description)
   end
+
+end
